@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
+<link rel="stylesheet" href="style.css" />
+
 export const PublicNavbar = () =>{
+    return(
     <>
-    <div className="public-navbar-container">
-        <nav className="navbar-container">
-                <div> <h1>home</h1></div>
-                <div><h1>Movies</h1></div>
-                <div><h1>Tv Shows</h1></div>
-                <div><h1>Search</h1></div>        
-        </nav>
+   <nav>
+    <div className="logo-container">
+        <Link to={'/'}>
+            <img src="../assets/images/logo.jpg" alt="image-logo" className="logo" />
+        </Link>
     </div>
+    <div className="navbar-optionList-container">
+     <ul className="colour">
+        <li>Home</li>
+        <li>Movies</li>
+        <li>Tv Shows</li>
+        <li>search</li>
+     </ul>
+    </div>
+
+
+   </nav>
     </>
+    )
 }
 export default PublicNavbar;
