@@ -1,10 +1,67 @@
 
 .logo-container .logo{
-    height: 100%;
-    width: 400px;
-    border-radius: 10cm;
+    width: 150px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
 
 }
- .navbar-list{
-    background-color: blueviolet;
-}
+ .navbar-optionList-container .navbar-list{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+  align-items: center;
+   height: 10vh;
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: darkslategray;
+  color:white;
+  list-style: none;
+ }
+ .banner-container .banner-image{
+    position: relative;
+    background-size: cover;
+  background-position: center;
+  height: 800oppx; 
+  width: 100%; 
+ }
+  .banner-container .btn-clr{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color:darkslategray;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  
+  .banner-container .btn-clr:hover {
+    background-color: #45a049;
+  }
+  
+  .banner-container .btn-clr:active {
+    background-color: #3e8e41;
+  }
+  
+  .banner-container .btn-clr:focus {
+    outline: none;
+  }
+  .banner-containe .overlay-para{
+    font-size: 16px;
+    color: #bc1818;
+    margin-bottom: 20px;
+  
+  }
+   .banner-container .overlay-text{
+    font-size: 24px;
+  color: #a00808;
+  margin-bottom: 10px;
+
+   }

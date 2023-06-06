@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-<link rel="stylesheet" href="style.css" />
 
 export const PublicNavbar = () =>{
     return(
@@ -11,11 +10,14 @@ export const PublicNavbar = () =>{
         </Link>
     </div>
     <div className="navbar-optionList-container">
-     <ul className="colour">
-        <li>Home</li>
-        <li>Movies</li>
-        <li>Tv Shows</li>
-        <li>search</li>
+     <ul className="navbar-list">
+        <li>
+            <Link to={'/'}>
+                home
+            </Link></li>
+        <li><Link to={'/Movies'}>  Movies</Link></li>
+        <li><Link to={'/TvShows'}>Tv Shows</Link></li>
+        <li><Link to={'/search'}>search</Link></li>
      </ul>
     </div>
 
