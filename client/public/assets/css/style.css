@@ -27,6 +27,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      padding: 0rem 1rem;
        }
   .banner-container .btn-clr{
     display: inline-block;
@@ -76,3 +77,55 @@
     padding-left: 10px;
     
    }
+   .popular-container{
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+   }
+   .popular-container .btn-trailer{
+    
+    padding: 10px 60px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color:darkslategray;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+     
+    
+   }
+   .card {
+    display: inline-flex;
+    margin-left: 2px;
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: 16px;
+    display: inline;
+  }
+  
+  .card-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .card-content p {
+    margin: 8px 0;
+    color: #666;
+  }
+  
+  
