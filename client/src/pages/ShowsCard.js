@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 
-export const MovieCard = () =>{
+export const ShowsCard = () =>{
     const imageUrl = 'https://picsum.photos/300/200';
     return(
+       
         <>
-        <div className="popular-container">
-            <h1>Popular movies</h1>
-            <button className="btn-trailer">explore more</button>
+            <div className="popular-container">
+            <h1>Popular Tvshows</h1>
+            <button className="btn-trailer">Explore more</button>
         </div>
         <br/>
         <Link>
@@ -35,4 +36,4 @@ export const MovieCard = () =>{
         </>
     )
 }
-  
+export default ShowsCard;

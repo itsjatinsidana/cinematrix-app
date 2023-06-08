@@ -11,9 +11,9 @@ export const PublicNavbar = () =>{
     </div>
     <div className="navbar-optionList-container">
      <ul className="navbar-list">
-        <li>
+        <li className="list-items">
             <Link to={'/'}>
-                home
+                Home
             </Link></li>
         <li><Link to={'/Movies'}>  Movies</Link></li>
         <li><Link to={'/TvShows'}>Tv Shows</Link></li>

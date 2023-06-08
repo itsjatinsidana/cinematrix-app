@@ -1,25 +1,41 @@
 
 .logo-container .logo{
     width: 150px; 
-    height: auto; 
+    height: 85px; 
     display: block; 
     margin: 0 auto;
     position: absolute;
     top: 0;
     left: 0;
+    background: #ff0000; /* Set the background color */
+  border: 2px solid #ffffff; /* Add a border */
+  border-radius: 50%; /* Make it circular */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a shadow */
+  
 
 }
+ .navbar-optionList-container{
+  text-decoration: none;
+ }
+  
  .navbar-optionList-container .navbar-list{
     display: flex;
     gap: 50px;
+    text-decoration: none;
     justify-content: center;
-  align-items: center;
-   height: 10vh;
-  margin-left: auto;
-  margin-right: 10px;
-  background-color: darkslategray;
-  color:white;
-  list-style: none;
+    align-items: center;
+    height: 13vh;
+    margin-left: auto;
+    background-color: darkslategray;
+    color:white;
+    list-style: none;
+    margin: 0;
+      padding: 0;
+      
+ }
+ .navbar-optionList-container  .list-items{
+  text-decoration: none;
+  color: #ccc;
  }
     .banner-container {
       background-image: url("../images/spider.jpg.jpg");
@@ -28,6 +44,7 @@
       background-position: center;
       background-repeat: no-repeat;
       padding: 0rem 1rem;
+      
        }
   .banner-container .btn-clr{
     display: inline-block;
