@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import{Movies} from "../pages/Movies";
 
 export const PublicNavbar = () =>{
     return(
@@ -15,7 +16,7 @@ export const PublicNavbar = () =>{
             <Link to={'/'}>
                 Home
             </Link></li>
-        <li><Link to={'/Movies'}>  Movies</Link></li>
+        <li><Link to={'/movies'} >  Movies</Link></li>
         <li><Link to={'/TvShows'}>Tv Shows</Link></li>
         <li><Link to={'/search'}>search</Link></li>
      </ul>

@@ -102,7 +102,7 @@ export const Home = () => {
                             <>
                                 <div className="card" key={index}>
                                     <div className="card-image">
-                                    <img src={value.primaryImage?value.primaryImage.url:"../images/spider.jpg.jpg"} alt="Card Image" />
+                                    <img src={value.primaryImage?value.primaryImage.url:"./assets/images/notavailable.jpg"} alt="Card Image" />
                                     </div>
                                     <div className="card-content">
                                         <h3>{value.originalTitleText.text}</h3>
