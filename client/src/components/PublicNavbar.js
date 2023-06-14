@@ -17,7 +17,7 @@ export const PublicNavbar = () =>{
                 Home
             </Link></li>
         <li><Link to={'/movies'} >  Movies</Link></li>
-        <li><Link to={'/TvShows'}>Tv Shows</Link></li>
+        <li><Link to={'/Series'}>Tv Shows</Link></li>
         <li><Link to={'/search'}>search</Link></li>
      </ul>
     </div>

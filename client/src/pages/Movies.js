@@ -75,22 +75,22 @@ export const Movies = () => {
     }, [])
 
     {/* set drama movie cards  */ }
-      const[drama,setDrama] = useState([]);
-       async function getDramaMovie(){
+    const [drama, setDrama] = useState([]);
+    async function getDramaMovie() {
 
         const options = {
-          method: 'GET',
-          url: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
-          params: {
-            genre: 'Drama',
-            limit: '3'
-          },
-          headers: {
-            'X-RapidAPI-Key': '904536df4emsh2aac700c28b8eedp1660adjsn45c008306c57',
-            'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-          }
+            method: 'GET',
+            url: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
+            params: {
+                genre: 'Drama',
+                limit: '3'
+            },
+            headers: {
+                'X-RapidAPI-Key': '904536df4emsh2aac700c28b8eedp1660adjsn45c008306c57',
+                'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+            }
         };
-        
+
         try {
             const response = await axios.request(options);
             console.log(response.data.results);
@@ -98,10 +98,39 @@ export const Movies = () => {
         } catch (error) {
             console.error(error);
         }
-      }
-       useEffect(() =>{
-         getDramaMovie();
-       },[])
+    }
+    useEffect(() => {
+        getDramaMovie();
+    }, [])
+    {/* romantic movies */ }
+    const [romantic, setRomantic] = useState([]);
+    async function getRomanticMovies() {
+
+        const options = {
+            method: 'GET',
+            url: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
+            params: {
+                genre: 'Romance',
+                limit: '3',
+                page: '2'
+            },
+            headers: {
+                'X-RapidAPI-Key': '904536df4emsh2aac700c28b8eedp1660adjsn45c008306c57',
+                'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            console.log(response.data.results);
+            setRomantic(response.data.results);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        getRomanticMovies();
+    }, [])
 
     return (
         <>
@@ -131,7 +160,7 @@ export const Movies = () => {
                     <h1>Action movies</h1>
                     <button className="btn-trailer">explore more</button>
                 </div>
-                <br/>
+                <br />
                 {
                     action.map(((value, index) => {
                         return (
@@ -152,18 +181,44 @@ export const Movies = () => {
             </div>
             {/* drama movie card */}
             <div className="drama-movie-container">
-            <div className="popular-container">
+                <div className="popular-container">
                     <h1>Drama movies</h1>
                     <button className="btn-trailer">explore more</button>
                 </div>
-                <br/>
+                <br />
                 {
-                    drama.map(((value,index) =>{
+                    drama.map(((value, index) => {
+                        return (
+                            <>
+                                <div className="card" key={index}>
+                                    <div className="card-image">
+                                        <img src={value.primaryImage?value.primaryImage.url:"./assets/images/notavailable.jpg"} alt="Card Image" />
+                                    </div>
+                                    <div className="card-content">
+                                        <h3>{value.originalTitleText.text}</h3>
+                                        <p>{value.titleType.text}</p>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                    }))
+                }
+            </div>
+            {/* set romantic movie card  */}
+            <div className="romantic-movie-card">
+
+                <div className="popular-container">
+                    <h1>romantic movies</h1>
+                    <button className="btn-trailer">explore more</button>
+                </div>
+                <br />
+                {
+                    romantic.map(((value,index)=>{
                         return(
                             <>
                              <div className="card" key={index}>
                                     <div className="card-image">
-                                        <img src={value.primaryImage.url} alt="Card Image" />
+                                        <img src={value.primaryImage?value.primaryImage.url:"./assets/images/notavailable.jpg"} alt="Card Image" />
                                     </div>
                                     <div className="card-content">
                                         <h3>{value.originalTitleText.text}</h3>
