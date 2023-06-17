@@ -1,12 +1,14 @@
 import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+import {useEffect, useState, useRef} from 'react';
 import PublicNavbar from '../components/PublicNavbar';
 import Footer from '../components/Footer';
+
 export const Search = () => {
- const [search, setSearch] = useState([]);
- const[term,setTerm] = useState("");   // state use to store data
- const[check,setCheck] = useState(false);
- const[current,setCurrent] = useState("");
+    const [search, setSearch] = useState([]);
+    const [term, setTerm] = useState("");   // state use to store data
+    const [check, setCheck] = useState(false);
+    const [current, setCurrent] = useState("");
+
     async function searchMovie() {
 
         const options = {
@@ -22,62 +24,57 @@ export const Search = () => {
             const response = await axios.request(options);
             console.log(response.data.results);
             setSearch(response.data.results)
-            setCheck(true); 
+            setCheck(true);
             setCurrent(term);                           // if seach happens 
         } catch (error) {
             console.error(error);
         }
     }
+
     return (
         <>
-            <PublicNavbar />
+            <PublicNavbar/>
             <div className="search-container">
-                <form id="search-form">
-                    <input type="text" id="search-input" placeholder="Search movies..." onChange={(e) =>setTerm(e.target.value)}/> {/*input tag value chamge than that value should store in the value */}
-                    
-                    <button className='btn-clr' type="button" onClick={searchMovie} >Search</button> {/*when we click btn than our function will call */}
+                <form className="search-form">
+                    <input type="text" className="search-input" placeholder="Search movies..." onChange={(e) => setTerm(e.target.value)}/> {/*input tag value chamge than that value should store in the value */}
+                    <button className='btn-clr' type="button" onClick={searchMovie}>Search</button>
+                    {/*when we click btn than our function will call */}
                 </form>
                 <div className='results-container'>
-                 <div className='result-header'>
-                   {
-                    search.length ===0 &&  check &&     // search kiya and kuch nhi aya
-                    <span>
-                        no results found
-                    </span>
-                   }
-                   {
-                    search.length !==0 && check &&       // search kiya and data agya
-                    <span>
-                        {search.length} results found for "{current}"
-
-                    </span>
-                   }
-                 </div>
-                 <div className='result-content'>
-
-
-                 {
-                  search.map(((value,index) =>{
-                    return(
-                      <>
-                        <div className="card" key={index}>
-                                    <div className="card-image">
-                                        <img src={value.primaryImage ? value.primaryImage.url : "./assets/images/notavailable.jpg"} alt="Card Image" />
-                                    </div>
-                                    <div className="card-content">
-                                        <h3>{value.originalTitleText.text}</h3>
-                                        <p>{value.titleType.text}</p>
-                                    </div>
-                                </div>
-                      </>
-                    )
-                  }))
-                }
-
-                 </div>
-                </div >
+                    <div className='result-header'>
+                        {
+                            search.length === 0 && check &&     // search kiya and kuch nhi aya
+                            <span>no results found</span>
+                        }
+                        {
+                            search.length !== 0 && check &&       // search kiya and data agya
+                            <span>{search.length} results found for "{current}"</span>
+                        }
+                    </div>
+                    <div className='result-content'>
+                        <div className="card-grid">
+                            {
+                                search.map(((value, index) => {
+                                    return (
+                                        <>
+                                            <div className="movie-card" key={index}>
+                                                <div className="movie-card-image">
+                                                    <img src={value.primaryImage ? value.primaryImage.url : "./assets/images/notavailable.jpg"} alt="Card Image"/>
+                                                </div>
+                                                <div className="movie-card-content">
+                                                    <span>{value.originalTitleText.text}</span>
+                                                    <span>{value.titleType.text}</span>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                }))
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
-            <Footer />
+            <Footer/>
         </>
     )
 }

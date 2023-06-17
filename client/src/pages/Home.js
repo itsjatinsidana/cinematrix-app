@@ -1,18 +1,19 @@
-import { PublicNavbar } from "../components/PublicNavbar";
-import { Banner } from "../pages/Banner";
-import { Footer } from "../components/Footer";
+import {PublicNavbar} from "../components/PublicNavbar";
+import {Banner} from "../pages/Banner";
+import {Footer} from "../components/Footer";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 export const Home = () => {
     const [movieCard, setMovieCard] = useState([]);
     const [showCard, setShowCard] = useState([]);
+
     async function getMovieCard() {
         const options = {
             method: 'GET',
             url: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
-            params: { limit: '3' },
+            params: {limit: '3'},
             headers: {
                 'X-RapidAPI-Key': '904536df4emsh2aac700c28b8eedp1660adjsn45c008306c57',
                 'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
@@ -27,11 +28,14 @@ export const Home = () => {
             console.error(error);
         }
     }
+
     useEffect(() => {
         getMovieCard()
     }, [])//[] dependency arr used to depend on a state which we put insite that dependency arr
 
-    {/*get shows card function */ }
+    {/*get shows card function */
+    }
+
     async function getTvShows() {
 
         const options = {
@@ -56,6 +60,7 @@ export const Home = () => {
         }
 
     }
+
     useEffect(() => {
         getTvShows();
     }, [])
@@ -64,59 +69,63 @@ export const Home = () => {
 
         <>
             <div className="home-container">
-                <PublicNavbar />
-                <Banner />
+                <PublicNavbar/>
+                <Banner/>
 
                 {/* popular movie section*/}
                 <div className="popular-container">
-                    <h1>Popular movies</h1>
-                   <Link to={"/movies"}> <button className="btn-trailer">explore more</button> </Link>
+                    <span>Popular movies</span>
+                    <Link to={"/movies"}>
+                        <button className="btn-trailer">explore more</button>
+                    </Link>
                 </div>
-                <br/>
-                {
-                    movieCard.map(((value, index) => {
-                        return (
-                            <>
-                                <div className="card" key={index}>
-                                    <div className="card-image">
-                                        <img src={value.primaryImage.url} alt="Card Image" />
+                <div className="card-grid">
+                    {
+                        movieCard.map(((value, index) => {
+                            return (
+                                <>
+                                    <div className="movie-card" key={index}>
+                                        <div className="movie-card-image">
+                                            <img src={value.primaryImage ? value.primaryImage.url : "./assets/images/notavailable.jpg"} alt="Card Image"/>
+                                        </div>
+                                        <div className="movie-card-content">
+                                            <span>{value.originalTitleText.text}</span>
+                                            <span>{value.titleType.text}</span>
+                                        </div>
                                     </div>
-                                    <div className="card-content">
-                                        <h3>{value.originalTitleText.text}</h3>
-                                        <p>{value.titleType.text}</p>
-                                    </div>
-                                </div>
-                            </>
-                        )
-                    }))
-                }
+                                </>
+                            )
+                        }))
+                    }
+                </div>
                 {/* popular shows section*/}
 
-                <div className="popular-container" >
-                    <h1>Popular Tvshows</h1>
-                     <Link to={"/Series"}><button className="btn-trailer">Explore more</button> </Link>
+                <div className="popular-container">
+                    <span>Popular Tvshows</span>
+                    <Link to={"/Series"}>
+                        <button className="btn-trailer">Explore more</button>
+                    </Link>
                 </div>
-               <br/>
-                {
-                    showCard.map(((value, index) => {
-                        return (
-                            <>
-                                <div className="card" key={index}>
-                                    <div className="card-image">
-                                    <img src={value.primaryImage?value.primaryImage.url:"./assets/images/notavailable.jpg"} alt="Card Image" />
+                <div className="card-grid">
+                    {
+                        showCard.map(((value, index) => {
+                            return (
+                                <>
+                                    <div className="movie-card" key={index}>
+                                        <div className="movie-card-image">
+                                            <img src={value.primaryImage ? value.primaryImage.url : "./assets/images/notavailable.jpg"} alt="Card Image"/>
+                                        </div>
+                                        <div className="movie-card-content">
+                                            <span>{value.originalTitleText.text}</span>
+                                            <span>{value.titleType.text}</span>
+                                        </div>
                                     </div>
-                                    <div className="card-content">
-                                        <h3>{value.originalTitleText.text}</h3>
-                                        <p>{value.titleType.text}</p>
-                                    </div>
-                                </div>
-                            </>
-                        )
-                    }))
-                }
-
-
-                <Footer />
+                                </>
+                            )
+                        }))
+                    }
+                </div>
+                <Footer/>
             </div>
         </>
     )
