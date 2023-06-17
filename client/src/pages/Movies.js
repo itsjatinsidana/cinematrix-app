@@ -42,7 +42,7 @@ export const Movies = () => {
     }, [upMovie])
     function getMovieImageBanner() {
         let banner = document.getElementById("banner-bg")
-        banner.style.backgroundImage = `url(${upMovie.primaryImage.url})`
+        banner.style.backgroundImage = `url(${upMovie.primaryImage ? upMovie.primaryImage.url :"./assets/images/notavailable.jpg" })`
     }
 
     {/* set action movie cards  */ }
@@ -167,7 +167,7 @@ export const Movies = () => {
                             <>
                                 <div className="card" key={index}>
                                     <div className="card-image">
-                                        <img src={value.primaryImage.url} alt="Card Image" />
+                                        <img src={value.primaryImage ? value.primaryImage.url : "./assets/images/notavailable.jpg"} alt="Card Image" />
                                     </div>
                                     <div className="card-content">
                                         <h3>{value.originalTitleText.text}</h3>

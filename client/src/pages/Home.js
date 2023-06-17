@@ -3,6 +3,7 @@ import { Banner } from "../pages/Banner";
 import { Footer } from "../components/Footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
     const [movieCard, setMovieCard] = useState([]);
@@ -69,7 +70,7 @@ export const Home = () => {
                 {/* popular movie section*/}
                 <div className="popular-container">
                     <h1>Popular movies</h1>
-                    <button className="btn-trailer">explore more</button>
+                   <Link to={"/movies"}> <button className="btn-trailer">explore more</button> </Link>
                 </div>
                 <br/>
                 {
@@ -93,7 +94,7 @@ export const Home = () => {
 
                 <div className="popular-container" >
                     <h1>Popular Tvshows</h1>
-                    <button className="btn-trailer">Explore more</button>
+                     <Link to={"/Series"}><button className="btn-trailer">Explore more</button> </Link>
                 </div>
                <br/>
                 {
