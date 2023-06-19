@@ -60,6 +60,12 @@ nav{
   letter-spacing: 5px;
 }
 
+@media screen and (max-width: 400px) {
+  .logo-container a{
+    font-size: 32px;
+  }
+}
+
 .navbar-optionList-container {
   text-decoration: none;
   flex: 75%; 
@@ -85,7 +91,67 @@ nav{
   transition: all 0.2s ease; 
 }
 
+.ham-icon{
+  display: none;
+}
+
 .navbar-optionList-container a:hover{
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .ham-icon{
+    display: block;
+  }
+
+  .navbar-optionList-container .list-items{
+    display: none;
+  }
+}
+
+aside{
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 110;
+  padding: 1rem 2rem;
+  background-color: #212121;
+  transition: all 0.2s ease;
+  transform: translateX(100%);
+}
+
+aside.active{
+  transform: translateX(0%);
+}
+
+aside .menu__close{
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+aside .sidebar .sidebar__menu .menu__list{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+aside .sidebar .sidebar__menu .menu__list .menu-items a{
+  text-decoration: none;
+  color: #939393;
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+aside .sidebar .sidebar__menu .menu__list .menu-items a:hover{
   color: white;
 }
 
@@ -126,6 +192,12 @@ nav{
   font-size: 56px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 520px) {
+  .banner-container .overlay-text{
+    font-size: 36px;
+  }
 }
 
 .banner-container .overlay-para {
@@ -204,10 +276,28 @@ nav{
   padding: 2rem 0;
 }
 
+@media screen and (max-width: 1510px) {
+  .card-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width: 1025px){
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .movie-card{
   height: 450px;
   width: 500px;
   position: relative;
+}
+
+@media screen and (max-width: 530px) {
+  .movie-card{
+    width: 80vw;
+  }
 }
 
 .movie-card .movie-card-image{
@@ -251,7 +341,8 @@ footer {
 
 .social-media-links {
   display: flex;
-  padding: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-media-links a {
