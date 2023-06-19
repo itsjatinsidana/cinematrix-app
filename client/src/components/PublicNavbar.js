@@ -36,7 +36,7 @@ export const PublicNavbar = () => {
                         <ul className="menu__list">
                             <li className="menu-items"><Link to={'/'}>Home</Link></li>
                             <li className="menu-items"><Link to={'/movies'}>Movies</Link></li>
-                            <li className="menu-items"><Link to={'/Series'}>Tv Shows</Link></li>
+                            
                             <li className="menu-items"><Link to={'/search'}>search</Link></li>
                         </ul>
                     </div>
