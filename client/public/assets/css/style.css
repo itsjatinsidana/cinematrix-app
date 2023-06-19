@@ -57,6 +57,12 @@ nav{
   letter-spacing: 5px;
 }
 
+@media screen and (max-width: 400px) {
+  .logo-container a{
+    font-size: 32px;
+  }
+}
+
 .navbar-optionList-container {
   text-decoration: none;
   flex: 75%;
@@ -183,6 +189,12 @@ aside .sidebar .sidebar__menu .menu__list .menu-items a:hover{
   font-size: 56px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 520px) {
+  .banner-container .overlay-text{
+    font-size: 36px;
+  }
 }
 
 .banner-container .overlay-para {
@@ -326,7 +338,8 @@ footer {
 
 .social-media-links {
   display: flex;
-  padding: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-media-links a {
