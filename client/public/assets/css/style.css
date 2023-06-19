@@ -201,10 +201,28 @@ nav{
   padding: 2rem 0;
 }
 
+@media screen and (max-width: 1510px) {
+  .card-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width: 1025px){
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .movie-card{
   height: 450px;
   width: 500px;
   position: relative;
+}
+
+@media screen and (max-width: 530px) {
+  .movie-card{
+    width: 80vw;
+  }
 }
 
 .movie-card .movie-card-image{
